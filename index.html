@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Binary Moon — ambient instrument for iOS</title>
+    <meta name="description" content="Binary Moon is a contemplative ambient instrument for iOS. Polyphonic wavetable synth, retroactive looper, spatial channel — fishing for music.">
+
+    <meta property="og:title" content="Binary Moon">
+    <meta property="og:description" content="Ambient instrument for iOS. Synth · looper · spatial channel.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://binarymoon.conopa.co">
+    <!-- TODO: replace with real og:image once a marketing render exists -->
+    <meta property="og:image" content="https://binarymoon.conopa.co/assets/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500&family=Noto+Serif+JP:wght@400;500&display=swap">
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
+
+<!-- ─── Hero ─────────────────────────────────────────────────────── -->
+<header class="hero">
+    <div class="hero-mark">
+        <span class="jp">二進月</span>
+    </div>
+    <h1 class="hero-title">
+        Binary Moon
+        <span class="jp">影 · 波</span>
+    </h1>
+    <p class="hero-tagline">
+        an ambient instrument for iOS.
+        fish for music. shape its decay. leave it running.
+    </p>
+</header>
+
+<!-- ─── What it is ─────────────────────────────────────────────────── -->
+<section class="prose">
+    <p>
+        Binary Moon is a small instrument with three voices in one. A polyphonic wavetable synth you play with your fingers. A micro-looper that captures the last few seconds of whatever you played, retroactively, so you can fish a phrase out of the air. A spatial channel that holds it all in a hall, a plate, or an echo — and freezes it if you let it.
+    </p>
+    <p>
+        Made for the kind of listening where you put the device down and pay attention to what stays in the room. Inspired by the MOOD MKII pedal architecture, rebuilt as a touch instrument with a Japanese editorial design language. Premium feel, low ceremony.
+    </p>
+</section>
+
+<!-- ─── Three feature blocks ───────────────────────────────────────── -->
+<section class="features">
+    <article class="feature">
+        <div class="feature-head">
+            <span class="feature-label">source</span>
+            <span class="jp">もと</span>
+        </div>
+        <h2>Polyphonic wavetable synth</h2>
+        <p>
+            Eight voices. A morphable four-frame wavetable (sine → triangle → saw → square), per-octave band-limited so high notes don't alias. Unison stack with detune, classic ADSR + filter envelope, state-variable filter with all four modes, and a sixteen-routing modulation matrix with two LFOs, two ramps, two macros, and an envelope follower.
+        </p>
+    </article>
+
+    <article class="feature">
+        <div class="feature-head">
+            <span class="feature-label">kage</span>
+            <span class="jp">影</span>
+        </div>
+        <h2>Retroactive looper</h2>
+        <p>
+            Always listening. Press capture and it grabs the last few seconds of what you played, faded smoothly at the boundaries so the wrap doesn't click. Press again and the new layer sums in additively, around the playhead so nothing snaps. Freeze locks the loop. Filter, fade, and speed knobs let the loop evolve as it plays. The MOOD MKII looper channel, rethought for touch.
+        </p>
+    </article>
+
+    <article class="feature">
+        <div class="feature-head">
+            <span class="feature-label">nami</span>
+            <span class="jp">波</span>
+        </div>
+        <h2>Spatial channel</h2>
+        <p>
+            Three modes you switch between as moods, not as effects: <em>hall</em> (large reverb), <em>plate</em> (denser, brighter tail), and <em>echo</em> (variable delay with feedback-path low-pass). Freeze captures the current spatial signature and holds it indefinitely — reverb tails decay naturally, echo recirculates near-perpetually. Output stereo width and dedicated filter on the spatial channel.
+        </p>
+    </article>
+</section>
+
+<!-- ─── Performance + extras ───────────────────────────────────────── -->
+<section class="performance">
+    <h2 class="section-title">
+        Performance <span class="jp">叩</span>
+    </h2>
+    <div class="performance-grid">
+        <div>
+            <h3>4 × 4 pad</h3>
+            <p>Pentatonic scale, choose your key from a chromatic picker. Hold-to-play or latch mode for sustained drones. Polyphony with smart voice stealing.</p>
+        </div>
+        <div>
+            <h3>MIDI keyboard</h3>
+            <p>Plug in a Core MIDI device and play across the whole keyboard. Hot-plug supported. CC1 → macro 1, CC2 → macro 2 by default.</p>
+        </div>
+        <div>
+            <h3>External input</h3>
+            <p>Built-in mic, AirPods, USB-C audio interface — route your voice or instrument through Kage and Nami. Fish a phrase from your guitar, freeze it, layer pad melodies over it.</p>
+        </div>
+        <div>
+            <h3>Scenes</h3>
+            <p>Five factory scenes (kumo, shizuka, yume, kaze, mori, oroshi). Save your own. Family-marked hanko stamps make the library scannable.</p>
+        </div>
+        <div>
+            <h3>Background audio</h3>
+            <p>Lock the screen and the loop keeps playing. When the audio actually goes silent, the engine pauses itself to save battery — wakes back up the moment something plays.</p>
+        </div>
+        <div>
+            <h3>Cross-phase modulation</h3>
+            <p>A clock dial and a pitch slider sit between Kage and Nami, modulating both phases together. Sub-octave pitch shifts on the spatial tail, half-speed loops, the works.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ─── Audio demo ─────────────────────────────────────────────────── -->
+<section class="demo">
+    <h2 class="section-title">
+        Listen <span class="jp">聴</span>
+    </h2>
+    <p class="demo-caption">
+        A short loop captured in oroshi — wind through reeds, slow filter sweep, hall reverb.
+    </p>
+    <audio controls preload="metadata" class="demo-player">
+        <source src="assets/demo.mp3" type="audio/mpeg">
+        Your browser doesn't support embedded audio. Download <a href="assets/demo.mp3">the demo clip</a>.
+    </audio>
+</section>
+
+<!-- ─── Screenshots ────────────────────────────────────────────────── -->
+<section class="screenshots">
+    <h2 class="section-title">
+        Screens <span class="jp">画</span>
+    </h2>
+    <div class="screenshot-row">
+        <figure>
+            <img src="assets/screen-patch.png" alt="Patch view — wavetable morph, filter, envelopes">
+            <figcaption>Patch · もと</figcaption>
+        </figure>
+        <figure>
+            <img src="assets/screen-phases.png" alt="Phases view — Kage waveform and Nami spatial controls">
+            <figcaption>Phases · 影 · 波</figcaption>
+        </figure>
+        <figure>
+            <img src="assets/screen-pad.png" alt="Performance pad with 4×4 hanko grid">
+            <figcaption>Pad · 叩</figcaption>
+        </figure>
+    </div>
+</section>
+
+<!-- ─── Get it ─────────────────────────────────────────────────────── -->
+<section class="get">
+    <h2 class="section-title">
+        Get it <span class="jp">入手</span>
+    </h2>
+    <p class="get-price">€9.99</p>
+    <p class="get-meta">iOS 17 and later · iPhone · iPad</p>
+    <!-- TODO: replace with real App Store URL after submission -->
+    <a class="app-store-link" href="#" aria-label="Download on the App Store">
+        <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="180" height="60">
+    </a>
+</section>
+
+<!-- ─── Footer ─────────────────────────────────────────────────────── -->
+<footer class="site-foot">
+    <div class="foot-row">
+        <span>Binary Moon</span>
+        <span class="dot">·</span>
+        <span>built by <a href="https://conopa.co">Conopa</a></span>
+        <span class="dot">·</span>
+        <a href="mailto:hello@conopa.co">hello@conopa.co</a>
+    </div>
+    <div class="foot-row foot-meta">
+        <span>© 2026 Conopa</span>
+        <span class="dot">·</span>
+        <a href="privacy.html">privacy</a>
+        <span class="dot">·</span>
+        <a href="terms.html">terms</a>
+    </div>
+</footer>
+
+</body>
+</html>

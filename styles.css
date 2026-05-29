@@ -1,0 +1,511 @@
+/*
+ *  Binary Moon — promo site
+ *
+ *  Direct port of the iOS app's design tokens. See Binary Moon/UI/Theme.swift
+ *  for the canonical palette / typography / spacing scale. Anywhere this CSS
+ *  diverges from Theme.swift is unintentional — fix to match.
+ */
+
+/* ───────────────── Tokens ───────────────── */
+
+:root {
+    /* Palette */
+    --washi:        #F3ECE4;
+    --sand:         #E8DCCC;
+
+    --sumi:         #373234;
+    --sumi-soft:    #5A4F4D;
+    --sumi-hair:    #9B8E89;
+
+    --indigo:       #2C4A52;
+    --indigo-soft:  #5A777E;
+
+    --vermillion:   #D84339;  /* classic; user-pickable in app, fixed here */
+    --ochre:        #C9A961;
+
+    /* Typography roles */
+    --serif:        "Cormorant Garamond", Georgia, serif;
+    --sans:         "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --jp:           "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+
+    /* Spacing (matches Spacing enum in Theme.swift, scaled for web) */
+    --sp-xs:    8px;
+    --sp-sm:    12px;
+    --sp-md:    16px;
+    --sp-pad:   22px;
+    --sp-lg:    28px;
+    --sp-xl:    36px;
+    --sp-xxl:   48px;
+    --sp-xxxl:  72px;
+
+    /* Strokes */
+    --stroke-fine:    1px;
+    --stroke-regular: 1.5px;
+
+    /* Max content width — narrower than typical landing pages, matches the
+       app's editorial, single-column reading rhythm. */
+    --content-max:    640px;
+    --wide-max:       960px;
+}
+
+/* ───────────────── Reset ───────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+html {
+    background: var(--washi);
+    color: var(--sumi);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body { min-height: 100vh; }
+
+a {
+    color: var(--sumi);
+    text-decoration: underline;
+    text-decoration-color: var(--vermillion);
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+}
+
+a:hover { color: var(--vermillion); }
+
+img, audio, svg { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.005em; }
+
+p { margin: 0 0 1em 0; }
+
+/* Inline Japanese marks pick up the JP font + indigo, paired with sumi
+   English in the app. Same restraint here. */
+.jp {
+    font-family: var(--jp);
+    color: var(--indigo);
+    font-weight: 400;
+    letter-spacing: 0.18em;
+}
+
+/* ───────────────── Layout ───────────────── */
+
+.hero,
+.prose,
+.features,
+.performance,
+.demo,
+.screenshots,
+.get,
+.site-foot {
+    padding-left: var(--sp-pad);
+    padding-right: var(--sp-pad);
+}
+
+.prose,
+.performance,
+.demo,
+.get {
+    max-width: var(--content-max);
+    margin: 0 auto;
+}
+
+.features,
+.screenshots {
+    max-width: var(--wide-max);
+    margin: 0 auto;
+}
+
+/* ───────────────── Hero ───────────────── */
+
+.hero {
+    padding-top: var(--sp-xxxl);
+    padding-bottom: var(--sp-xxl);
+    text-align: center;
+}
+
+.hero-mark {
+    margin-bottom: var(--sp-lg);
+}
+
+.hero-mark .jp {
+    font-size: 1.25rem;
+    color: var(--indigo-soft);
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    line-height: 1.05;
+    margin: 0 0 var(--sp-md) 0;
+    color: var(--sumi);
+    letter-spacing: -0.015em;
+}
+
+.hero-title .jp {
+    display: block;
+    margin-top: var(--sp-xs);
+    font-size: 1.125rem;
+    letter-spacing: 0.2em;
+    color: var(--indigo);
+    font-family: var(--jp);
+}
+
+.hero-tagline {
+    font-family: var(--serif);
+    font-size: clamp(1rem, 2.6vw, 1.25rem);
+    font-style: italic;
+    color: var(--sumi-soft);
+    max-width: 32em;
+    margin: 0 auto;
+    letter-spacing: -0.005em;
+}
+
+/* ───────────────── Prose ───────────────── */
+
+.prose {
+    padding-top: var(--sp-xl);
+    padding-bottom: var(--sp-xl);
+    font-size: 1.0625rem;
+    color: var(--sumi);
+}
+
+.prose p {
+    margin-bottom: var(--sp-md);
+}
+
+/* ───────────────── Features ───────────────── */
+
+.features {
+    padding-top: var(--sp-xl);
+    padding-bottom: var(--sp-xxl);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-xxl);
+}
+
+@media (min-width: 720px) {
+    .features { grid-template-columns: repeat(3, 1fr); gap: var(--sp-xl); }
+}
+
+.feature {
+    border-top: var(--stroke-fine) solid var(--sumi);
+    padding-top: var(--sp-md);
+}
+
+.feature-head {
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-sm);
+    margin-bottom: var(--sp-xs);
+}
+
+.feature-label {
+    font-size: 0.625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sumi-hair);
+}
+
+.feature-head .jp {
+    font-size: 1rem;
+}
+
+.feature h2 {
+    font-size: 1.375rem;
+    margin: 0 0 var(--sp-sm) 0;
+    line-height: 1.2;
+    color: var(--sumi);
+}
+
+.feature p {
+    font-size: 0.9375rem;
+    color: var(--sumi-soft);
+    line-height: 1.5;
+}
+
+.feature em {
+    color: var(--sumi);
+    font-style: italic;
+    font-family: var(--serif);
+}
+
+/* ───────────────── Performance ───────────────── */
+
+.performance {
+    padding-top: var(--sp-xl);
+    padding-bottom: var(--sp-xxl);
+}
+
+.section-title {
+    font-size: clamp(1.625rem, 4vw, 2rem);
+    margin: 0 0 var(--sp-lg) 0;
+    color: var(--sumi);
+    text-align: center;
+    letter-spacing: -0.01em;
+}
+
+.section-title .jp {
+    margin-left: 0.4em;
+    font-size: 0.6em;
+    color: var(--indigo);
+}
+
+.performance-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-lg);
+    background: var(--sand);
+    background-color: rgba(232, 220, 204, 0.4);
+    padding: var(--sp-lg);
+    border-radius: 4px;
+}
+
+@media (min-width: 540px) {
+    .performance-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--sp-lg) var(--sp-xl);
+    }
+}
+
+.performance-grid h3 {
+    font-size: 1rem;
+    margin: 0 0 4px 0;
+    color: var(--sumi);
+    font-weight: 500;
+    font-family: var(--sans);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.performance-grid p {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--sumi-soft);
+}
+
+/* ───────────────── Demo ───────────────── */
+
+.demo {
+    padding-top: var(--sp-xl);
+    padding-bottom: var(--sp-xxl);
+    text-align: center;
+}
+
+.demo-caption {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--sumi-soft);
+    margin-bottom: var(--sp-lg);
+}
+
+.demo-player {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* ───────────────── Screenshots ───────────────── */
+
+.screenshots {
+    padding-top: var(--sp-xl);
+    padding-bottom: var(--sp-xxl);
+}
+
+.screenshot-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-lg);
+    justify-items: center;
+}
+
+@media (min-width: 720px) {
+    .screenshot-row { grid-template-columns: repeat(3, 1fr); }
+}
+
+.screenshot-row figure {
+    margin: 0;
+    text-align: center;
+}
+
+.screenshot-row img {
+    width: 100%;
+    max-width: 280px;
+    border: var(--stroke-fine) solid var(--sumi-hair);
+    border-radius: 6px;
+}
+
+.screenshot-row figcaption {
+    margin-top: var(--sp-xs);
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--sumi-soft);
+}
+
+.screenshot-row figcaption .jp { color: var(--indigo); }
+
+/* ───────────────── Get it ───────────────── */
+
+.get {
+    padding-top: var(--sp-xxl);
+    padding-bottom: var(--sp-xxxl);
+    text-align: center;
+}
+
+.get-price {
+    font-family: var(--serif);
+    font-size: 3rem;
+    color: var(--sumi);
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.get-meta {
+    font-size: 0.625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sumi-hair);
+    margin-bottom: var(--sp-lg);
+}
+
+.app-store-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.app-store-link img {
+    width: 180px;
+    height: auto;
+}
+
+/* ───────────────── Footer ───────────────── */
+
+.site-foot {
+    border-top: var(--stroke-fine) solid var(--sumi-hair);
+    padding-top: var(--sp-lg);
+    padding-bottom: var(--sp-xl);
+    margin: 0 var(--sp-pad);
+    text-align: center;
+}
+
+.foot-row {
+    font-size: 0.8125rem;
+    color: var(--sumi-soft);
+    margin-bottom: 4px;
+}
+
+.foot-row a {
+    color: var(--sumi-soft);
+    text-decoration-color: var(--vermillion);
+}
+
+.foot-row a:hover { color: var(--vermillion); }
+
+.foot-meta {
+    font-size: 0.6875rem;
+    color: var(--sumi-hair);
+}
+
+.foot-meta a { color: var(--sumi-hair); }
+
+.dot {
+    margin: 0 var(--sp-xs);
+    color: var(--sumi-hair);
+}
+
+/* ───────────────── Legal pages (privacy.html, terms.html) ───────────────── */
+
+.legal {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: var(--sp-xxxl) var(--sp-pad) var(--sp-xl);
+}
+
+.legal-head {
+    margin-bottom: var(--sp-xl);
+    border-bottom: var(--stroke-fine) solid var(--sumi-hair);
+    padding-bottom: var(--sp-lg);
+}
+
+.legal-crumb {
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sumi-hair);
+    margin-bottom: var(--sp-md);
+}
+
+.legal-crumb a {
+    color: var(--sumi-hair);
+    text-decoration: none;
+}
+
+.legal-crumb a:hover { color: var(--vermillion); }
+
+.legal h1 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    margin: 0 0 var(--sp-md) 0;
+    color: var(--sumi);
+    letter-spacing: -0.015em;
+}
+
+.legal-tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--sumi-soft);
+    font-size: 1.0625rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.legal section {
+    margin-bottom: var(--sp-xl);
+}
+
+.legal h2 {
+    font-size: 1.25rem;
+    margin: 0 0 var(--sp-sm) 0;
+    color: var(--sumi);
+    letter-spacing: -0.005em;
+}
+
+.legal p,
+.legal ul {
+    font-size: 0.9375rem;
+    color: var(--sumi-soft);
+    line-height: 1.65;
+    margin: 0 0 var(--sp-sm) 0;
+}
+
+.legal ul {
+    padding-left: 1.25em;
+}
+
+.legal li {
+    margin-bottom: 0.4em;
+}
+
+.legal-updated {
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sumi-hair);
+    margin-top: var(--sp-xxl);
+    padding-top: var(--sp-md);
+    border-top: var(--stroke-fine) solid var(--sumi-hair);
+}
+
+/* ───────────────── Responsive niceties ───────────────── */
+
+@media (max-width: 480px) {
+    .hero { padding-top: var(--sp-xl); padding-bottom: var(--sp-lg); }
+    .hero-tagline { line-height: 1.4; }
+}
+
+/* ───────────────── Prefers-reduced-motion ───────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+}
