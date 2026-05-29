@@ -28,15 +28,3 @@ This repo deploys to https://binarymoon.app via Cloudflare Pages.
 - **Production branch:** `main`
 
 Every push to `main` triggers a redeploy (~30 sec).
-
-## Design tokens
-
-Palette, typography, spacing, and stroke widths in `styles.css` are a direct port of `Binary Moon/UI/Theme.swift`. If the app's Theme changes, update both. Web fonts (Cormorant Garamond, Inter, Noto Serif JP) are loaded from Google Fonts to match the app's typography roles as closely as the web allows.
-
-## Editing copy
-
-All text lives in `index.html`. Notable markers:
-
-- `<!-- TODO: replace with real App Store URL -->` — the App Store link
-- `<!-- TODO: replace with real og:image -->` — OpenGraph share image
-- The `€9.99` price string is in `.get-price` — change in one place
